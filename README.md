@@ -133,6 +133,31 @@ There are two folders in that project where the Python setup has to be updated:
   + [`Pipfile.lock`](https://github.com/machine-learning-helpers/induction-python/blob/master/ml_induction_python/Pipfile.lock)
   + [`requirements.txt`](https://github.com/machine-learning-helpers/induction-python/blob/master/ml_induction_python/requirements.txt)
 
+Then, the ML Docker project (see above) should be updated to point to
+the new Python ML induction head.
+* Clone the ML Docker project and initialize sub-modules (if needed):
+```bash
+$ mkdir -p ~/dev/ml && git clone https://github.com/machine-learning-helpers/docker-python-jupyter ~/dev/ml/docker-python-jupyter
+$ cd ~/dev/ml/docker-python-jupyter
+$ git submodule init
+$ git submodule update --recursive --force
+```
+
+* Pull (with Git) the head of the `master` branch on the ML induction module:
+```bash
+$ cd ~/dev/ml/docker-python-jupyter/notebook/induction
+$ git checkout master
+$ git pull
+```
+
+* Add, commit and push (with Git) the newly updated module:
+```bash
+$ cd ~/dev/ml/docker-python-jupyter
+$ git add notebook/induction
+$ git commit -m "[Modules] Updated the Python ML induction module"
+$ git push
+```
+
 #### Python bindings for OpenTravelData (OPTD)
 
 References: 
