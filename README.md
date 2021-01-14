@@ -58,8 +58,8 @@ Management of Python-related Docker images
 * [Docker land page for `artificialintelligence/python-jupyter`](https://hub.docker.com/repository/docker/artificialintelligence/python-jupyter)
   + [Docker image page for `artificialintelligence/python-jupyter:ubuntu1804`](https://hub.docker.com/layers/artificialintelligence/python-jupyter/ubuntu1804/images/sha256-a1ca930d5c520dd66ab23e6b8122e761b7274044a8e5ac30b4adb2ad740e121b?context=repo)
 * [Quay land page for `artificialintelligence/python-jupyter`](https://quay.io/repository/artificialintelligence/python-jupyter)
-* Distributions: `ubuntu1810`, `ubuntu1804`,
-  `debian9`, `centos7`
+* Distributions: `ubuntu2004`, `ubuntu1804`, `debian10`, `debian9`,
+  `centos8`, `centos7`
 * Badges:
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/artificialintelligence/python-jupyter)](https://hub.docker.com/repository/docker/artificialintelligence/python-jupyter/general)
 [![Docker Repository on Quay](https://quay.io/repository/artificialintelligence/python-jupyter/status "Docker Repository on Quay")](https://quay.io/repository/artificialintelligence/python-jupyter)
@@ -76,27 +76,32 @@ Management of Python-related Docker images
 * [Python releases](https://www.python.org/downloads/)
 
 ### Add the new Python version to the C++/Python Docker images
+* Git repository: https://github.com/cpp-projects-showcase/docker-images
+
 * Add the commands to install the new Python version in the Dockerfile files
   of all the distriibutions. For instance,
-  [adding Python 3.8.2 to Ubuntu 18.04](https://github.com/cpp-projects-showcase/docker-images/blob/master/ubuntu1804/Dockerfile#L91)
+  [adding Python 3.9.0 to Ubuntu 20.04](https://github.com/cpp-projects-showcase/docker-images/blob/master/ubuntu2004/Dockerfile#L91)
 ```bash
-$ cat ubuntu1804/Dockerfile
+$ cat ubuntu2004/Dockerfile
 ...
-# Python 3.8.2
-RUN pyenv install 3.8.2 && \
-    pyenv global 3.8.2 && \
-    pip install -U pip pipenv
-RUN pyenv global system || echo "No default system version of Python. Sticking to 3.8.2"
+# Python 3.9.1
+RUN pyenv install 3.9.1 && \
+    pyenv global 3.9.1 && \
+    python -mpip install -U pip pipenv
+RUN pyenv global system || echo "No default system version of Python. Sticking to 3.9.1"
 ...
 ```
 
-* Keeping at least one of the older versions of Python (3.8.1 here)
+* Keeping at least one of the older versions of Python (3.8.6 here)
   gives the downstream Docker images the time to catch up.
 
 ### Update the Python environment of the Python Jupyter Docker image
-The ML Pythn Jupyter Docker images is built on top of the generic C++/Python
-image, described in the section above. The Python version is therefore
-controlled by that Docker image.
+* Git repository:
+  https://github.com/machine-learning-helpers/docker-python-jupyter
+
+The ML Python Jupyter Docker images are built on top of the generic C++/Python
+images, described in the section above. The Python versions are therefore
+controlled by those Docker images.
 
 The Python virtual environment speccifications need however to be upgraded.
 Files to update:
@@ -104,16 +109,17 @@ Files to update:
 * [`Pipfile`](https://github.com/machine-learning-helpers/docker-python-jupyter/blob/master/Pipfile)
 * [`Pipfile.lock`](https://github.com/machine-learning-helpers/docker-python-jupyter/blob/master/Pipfile.lock)
 
-### Update the Python environment of the Python Alpine Docker image
-The default Alpine vresion comes up with the latest Python stable version,
-only a few days after that latter has been released. There is hence
-no need to upgrade the Python version on the Alpine Doccker images.
+### Update the Python environment of the Python light Docker image
+* Git repository:
+  https://github.com/machine-learning-helpers/docker-python-light
 
-The Python virtual environment speccifications need however to be upgraded.
-Files to update:
-* [`dash-starter/.python-version`](https://github.com/machine-learning-helpers/docker-python-alpine/blob/master/dash-starter/.python-version)
-* [`Pipfile`](https://github.com/machine-learning-helpers/docker-python-alpine/blob/master/dash-starter/Pipfile)
-* [`Pipfile.lock`](https://github.com/machine-learning-helpers/docker-python-alpine/blob/master/dash-starter/Pipfile.lock)
+The default Python versions for light images (_e.g._, Alpine, Debian and
+Debian Slim), as maintained by Docker itself
+([on GitHub](https://github.com/docker-library/python) and
+[on Docker Hub](https://hub.docker.com/_/python)), are usually
+the latest Python stable versions, only a few days after they have been
+released. There is hence no need to upgrade the Python version on the
+light Doccker images.
 
 ### Non Docker projects to update
 
@@ -207,4 +213,26 @@ user@laptop$ pipenv run twine upload -u __token__ --repository-url ${PYPIURL}/le
 user@laptop$ PYPIURL="https://pypi.org"
 user@laptop$ #pipenv run keyring set ${PYPIURL}/ __token__
 user@laptop$ pipenv run twine upload -u __token__ --non-interactive dist/*
+```
+
+## Installation or update of a Python virtual environment
+* In a folder governed by `Pipfile`:
+  + To install the dedicated Python virtual environment:
+```bash
+$ pipenv install; pipenv install --dev
+```
+  + To update the dedicated Python virtual environment:
+```bash
+$ pipenv update
+```
+
+* On MacOS, with the `psycopg2` module, there may be some trouble
+  at installation time related to an issue with SSL libraries. It can
+  usually be solved with:
+```bash
+$ LDFLAGS="-I/usr/local/opt/openssl/include" CPPFLAGS="-L/usr/local/opt/openssl/lib" pipenv install psycopg2
+Installing psycopg2…
+Adding psycopg2 to Pipfile's [packages]…
+✔ Installation Succeeded 
+$ pipenv install; pipenv install --dev
 ```
