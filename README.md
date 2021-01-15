@@ -203,6 +203,8 @@ Files to update:
 * [`.python-version`](https://github.com/trep/wrapper/blob/master/.python-version)
 * [`Pipfile`](https://github.com/trep/wrapper/blob/master/Pipfile)
 * [`Pipfile.lock`](https://github.com/trep/wrapper/blob/master/Pipfile.lock)
+* [`requirements.txt `](https://github.com/trep/wrapper/blob/master/requirements.txt)
+* [`requirements-dev.txt `](https://github.com/trep/wrapper/blob/master/requirements-dev.txt)
 
 Publish the component on PyPi:
 ```bash
@@ -212,7 +214,13 @@ user@laptop$ PYPIURL="https://test.pypi.org"
 user@laptop$ pipenv run twine upload -u __token__ --repository-url ${PYPIURL}/legacy/ dist/*
 user@laptop$ PYPIURL="https://pypi.org"
 user@laptop$ #pipenv run keyring set ${PYPIURL}/ __token__
-user@laptop$ pipenv run twine upload -u __token__ --non-interactive dist/*
+user@laptop$ pipenv run twine upload -u __token__ --non-interactive --repository-url ${PYPIURL}/legacy/ dist/*
+```
+
+Re-generate `requirements.txt` and `requirements-dev.txt`:
+```bash
+$ pipenv lock -r > requirements.txt
+$ pipenv lock -r --dev > requirements-dev.txt
 ```
 
 ## Installation or update of a Python virtual environment
