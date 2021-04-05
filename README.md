@@ -1,27 +1,35 @@
-Management of Python-related Docker images
-==========================================
+Management of Python-related tools and container images
+=======================================================
 
+# Table of Content (ToC)
+- [Management of Python-related tools and container images](#management-of-python-related-tools-and-container-images)
+- [Table of Content (ToC)](#table-of-content-toc)
 - [Overview](#overview)
   * [References](#references)
 - [Projects this repository helps to manage](#projects-this-repository-helps-to-manage)
-  * [Docker light (Alpine) images to support Machine Learning (ML) in Python](#docker-light--alpine--images-to-support-machine-learning--ml--in-python)
-  * [Docker images to support development on C++ and Python stacks](#docker-images-to-support-development-on-c---and-python-stacks)
-    + [General C++/Python development](#general-c---python-development)
-    + [Python Machine Learning (ML)](#python-machine-learning--ml-)
-  * [Python bindiings for OpenTravelData (OPTD)](#python-bindiings-for-opentraveldata--optd-)
+  * [Docker light (Alpine) images to support Machine Learning (ML) in Python](#docker-light-alpine-images-to-support-machine-learning-ml-in-python)
+  * [Docker images to support development on C++ and Python stacks](#docker-images-to-support-development-on-c-and-python-stacks)
+    + [General C++/Python development](#general-c-python-development)
+    + [Python Machine Learning (ML)](#python-machine-learning-ml)
+  * [Python tools for OpenTravelData (OPTD)](#python-tools-for-opentraveldata-optd)
+  * [Quality Assurance (QA) for OpenTravelData (OPTD)](#quality-assurance-qa-for-opentraveldata-optd)
+  * [Python bindiings for OpenTravelData (OPTD)](#python-bindiings-for-opentraveldata-optd)
+  * [Python bindings for OpenTREP](#python-bindings-for-opentrep)
   * [Python installation](#python-installation)
 - [Procedures](#procedures)
   * [New Python stable version](#new-python-stable-version)
-    + [Add the new Python version to the C++/Python Docker images](#add-the-new-python-version-to-the-c---python-docker-images)
+    + [Add the new Python version to the C++/Python Docker images](#add-the-new-python-version-to-the-c-python-docker-images)
     + [Update the Python environment of the Python Jupyter Docker image](#update-the-python-environment-of-the-python-jupyter-docker-image)
-    + [Update the Python environment of the Python Alpine Docker image](#update-the-python-environment-of-the-python-alpine-docker-image)
+    + [Update the Python environment of the Python light Docker image](#update-the-python-environment-of-the-python-light-docker-image)
     + [Non Docker projects to update](#non-docker-projects-to-update)
-      - [Machine Learning (ML) induction](#machine-learning--ml--induction)
-      - [Python bindings for OpenTravelData (OPTD)](#python-bindings-for-opentraveldata--optd-)
-      - [Python bindings for OpenTREP](#python-bindings-for-opentrep)
+      - [Machine Learning (ML) induction](#machine-learning-ml-induction)
+      - [Python tools for OpenTravelData (OPTD)](#python-tools-for-opentraveldata-optd-1)
+      - [Quality Assurance (QA) for OpenTravelData (OPTD)](#quality-assurance-qa-for-opentraveldata-optd-1)
+      - [Python bindings for OpenTravelData (OPTD)](#python-bindings-for-opentraveldata-optd)
+      - [Python bindings for OpenTREP](#python-bindings-for-opentrep-1)
+  * [Installation or update of a Python virtual environment](#installation-or-update-of-a-python-virtual-environment)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 
 # Overview
 
@@ -35,8 +43,13 @@ Management of Python-related Docker images
 * [Docker land page for `artificialintelligence/python-light`](https://hub.docker.com/repository/docker/artificialintelligence/python-light)
   + [Docker image page for `artificialintelligence/python-light:py39-buster`](https://hub.docker.com/layers/artificialintelligence/python-light/py39-buster/images/sha256-0693541c20bc911a427ba614200773e093add6ca18714422fb271ee7dd88aa57?context=repo)
 * [Quay land page for `artificialintelligence/python-light`](https://quay.io/repository/artificialintelligence/python-light)
-* Distributions: `py39-buster`, `py38-buster`, `alp313-py387`, `alp312-py385`,
-  `alp311-py382`
+* Distributions:
+  + [`py39-buster`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.9-buster/)
+  + [`py39-alp313`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.9-alpine-3.13)
+  + [`py38-buster`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.8-buster/)
+  + [`py38-alp313`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.8-alpine-3.13)
+  + [`alp313-py388`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/alpine-3.13/)
+  + [`alp312-py388`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/alpine-3.12/)
 * Badges:
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/artificialintelligence/python-light)](https://hub.docker.com/repository/docker/artificialintelligence/python-light/general)
 [![Docker Repository on Quay](https://quay.io/repository/artificialintelligence/python-light/status) "Docker Repository on Quay"](https://quay.io/repository/artificialintelligence/python-light)
@@ -65,8 +78,19 @@ Management of Python-related Docker images
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/artificialintelligence/python-jupyter)](https://hub.docker.com/repository/docker/artificialintelligence/python-jupyter/general)
 [![Docker Repository on Quay](https://quay.io/repository/artificialintelligence/python-jupyter/status "Docker Repository on Quay")](https://quay.io/repository/artificialintelligence/python-jupyter)
 
+## Python tools for OpenTravelData (OPTD)
+* [OpenTravelData (OPTD) tools](https://github.com/opentraveldata/opentraveldata/blob/master/tools/)
+
+## Quality Assurance (QA) for OpenTravelData (OPTD)
+* [OpenTravelData (OPTD) - Quality Assurance (QA)](https://github.com/opentraveldata/quality-assurance/)
+
 ## Python bindiings for OpenTravelData (OPTD)
 * [OpenTravelData (OPTD) Data Wrapper - Python Bindings](https://github.com/opentraveldata/python-opentraveldata)
+* [OpenTravelData (OPTD) on PyPi](https://pypi.org/project/opentraveldata/)
+
+## Python bindings for OpenTREP
+* [OpenTREP - Python wrapper](https://github.com/trep/wrapper)
+* [OpenTrepWrapper on PyPi](https://pypi.org/project/OpenTrepWrapper/)
 
 ## Python installation
 * [How-to install Python virtual environment with `pyenv` and `pipenv`](https://github.com/machine-learning-helpers/induction-python/tree/master/installation/virtual-env)
@@ -81,19 +105,19 @@ Management of Python-related Docker images
 
 * Add the commands to install the new Python version in the Dockerfile files
   of all the distriibutions. For instance,
-  [adding Python 3.9.2 to Ubuntu 20.04](https://github.com/cpp-projects-showcase/docker-images/blob/master/ubuntu2004/Dockerfile#L91)
+  [adding Python 3.9.4 to Ubuntu 20.04](https://github.com/cpp-projects-showcase/docker-images/blob/master/ubuntu2004/Dockerfile#L91)
 ```bash
 $ cat ubuntu2004/Dockerfile
 ...
-# Python 3.9.2
-RUN pyenv install 3.9.2 && \
-    pyenv global 3.9.2 && \
+# Python 3.9.4
+RUN pyenv install 3.9.4 && \
+    pyenv global 3.9.4 && \
     python -mpip install -U pip pipenv
-RUN pyenv global system || echo "No default system version of Python. Sticking to 3.9.1"
+RUN pyenv global system || echo "No default system version of Python. Sticking to 3.9.4"
 ...
 ```
 
-* Keeping at least one of the older versions of Python (3.8.7 here)
+* Keeping at least one of the older versions of Python (3.9.2 here)
   gives the downstream Docker images the time to catch up.
 
 ### Update the Python environment of the Python Jupyter Docker image
@@ -165,10 +189,33 @@ $ git commit -m "[Modules] Updated the Python ML induction module"
 $ git push
 ```
 
+#### Python tools for OpenTravelData (OPTD)
+
+References:
+* [OpenTravelData (OPTD) tools](https://github.com/opentraveldata/opentraveldata/blob/master/tools/)
+
+Files to update:
+* [`.python-version`](https://github.com/opentraveldata/opentraveldata/blob/master/tools/.python-version)
+* [`Pipfile`](https://github.com/opentraveldata/opentraveldata/blob/master/tools/Pipfile)
+* [`Pipfile.lock`](https://github.com/opentraveldata/opentraveldata/blob/master/tools/Pipfile.lock)
+
+#### Quality Assurance (QA) for OpenTravelData (OPTD)
+
+References:
+* [OpenTravelData (OPTD) - Quality Assurance (QA)](https://github.com/opentraveldata/quality-assurance/)
+
+Files to update:
+* [`.python-version`](https://github.com/opentraveldata/quality-assurance/blob/master/.python-version)
+* [`Pipfile`](https://github.com/opentraveldata/quality-assurance/blob/master/Pipfile)
+* [`Pipfile.lock`](https://github.com/opentraveldata/quality-assurance/blob/master/Pipfile.lock)
+* [`requirements.txt`](https://github.com/opentraveldata/quality-assurance/blob/master/requirements.txt)
+  + Copy that `requirements.txt` file as
+    [`ci-scripts/requirements.txt` in OpenTravelData (OPTD)](https://github.com/opentraveldata/opentraveldata/blob/master/ci-scripts/requirements.txt)
+
 #### Python bindings for OpenTravelData (OPTD)
 
 References: 
-* [Python OpenTravelData (OPTD) bindgs](https://github.com/opentraveldata/python-opentraveldata)
+* [Python OpenTravelData (OPTD) bindings](https://github.com/opentraveldata/python-opentraveldata)
 * [OpenTravelData on PyPi](https://pypi.org/project/opentraveldata/)
 
 Files to update:
@@ -240,8 +287,8 @@ $ pipenv update
   usually be solved with:
 ```bash
 $ LDFLAGS="-I/usr/local/opt/openssl/include" CPPFLAGS="-L/usr/local/opt/openssl/lib" pipenv install psycopg2
-Installing psycopg2…
-Adding psycopg2 to Pipfile's [packages]…
+Installing psycopg2
+Adding psycopg2 to Pipfile's [packages]
 ✔ Installation Succeeded 
 $ pipenv install; pipenv install --dev
 ```
