@@ -7,10 +7,11 @@ Management of Python-related tools and container images
 - [Overview](#overview)
   * [References](#references)
 - [Projects this repository helps to manage](#projects-this-repository-helps-to-manage)
-  * [Docker light (Alpine) images to support Machine Learning (ML) in Python](#docker-light-alpine-images-to-support-machine-learning-ml-in-python)
+  * [Light images to support Machine Learning (ML) in Python](#light-images-to-support-machine-learning-ml-in-python)
   * [Docker images to support development on C++ and Python stacks](#docker-images-to-support-development-on-c-and-python-stacks)
     + [General C++/Python development](#general-c-python-development)
     + [Python Machine Learning (ML)](#python-machine-learning-ml)
+    + [Python cloud images](#python-cloud-images)
   * [Python tools for OpenTravelData (OPTD)](#python-tools-for-opentraveldata-optd)
   * [Quality Assurance (QA) for OpenTravelData (OPTD)](#quality-assurance-qa-for-opentraveldata-optd)
   * [Python bindiings for OpenTravelData (OPTD)](#python-bindiings-for-opentraveldata-optd)
@@ -38,45 +39,57 @@ Management of Python-related tools and container images
 
 # Projects this repository helps to manage
 
-## Docker light (Alpine) images to support Machine Learning (ML) in Python
+## Light images to support Machine Learning (ML) in Python
 * [ML Helpers GitHub repository](https://github.com/machine-learning-helpers/docker-python-light)
-* [Docker land page for `artificialintelligence/python-light`](https://hub.docker.com/repository/docker/artificialintelligence/python-light)
-  + [Docker image page for `artificialintelligence/python-light:py39-buster`](https://hub.docker.com/layers/artificialintelligence/python-light/py39-buster/images/sha256-0693541c20bc911a427ba614200773e093add6ca18714422fb271ee7dd88aa57?context=repo)
+* [Docker land page for `infrahelpers/python-light`](https://hub.docker.com/repository/docker/infrahelpers/python-light)
+  + [Docker image page for `infrahelpers/python-light:py39-bullseye`](https://hub.docker.com/layers/173696157/infrahelpers/python-light/py39-bullseye/images/sha256-7b68b943693e3fd5528e5356e2e0eda97c002299d80b862caa15216843d8b8a7?context=repo)
 * [Quay land page for `artificialintelligence/python-light`](https://quay.io/repository/artificialintelligence/python-light)
 * Distributions:
+  + [`py310-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.10-bullseye/)
+  + [`py310-buster`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.10-buster/)
+  + [`py39-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.9-bullseye/)
   + [`py39-buster`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.9-buster/)
-  + [`py39-alp313`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.9-alpine-3.13)
+  + [`py39-alp314`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.9-alpine-3.14)
+  + [`py38-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.8-bullseye/)
   + [`py38-buster`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.8-buster/)
-  + [`py38-alp313`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.8-alpine-3.13)
-  + [`alp313-py388`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/alpine-3.13/)
-  + [`alp312-py388`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/alpine-3.12/)
+  + [`py38-alp314`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.8-alpine-3.14)
+  + [`alp314-py395`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/alpine-3.14/)
 * Badges:
-[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/artificialintelligence/python-light)](https://hub.docker.com/repository/docker/artificialintelligence/python-light/general)
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/python-light)](https://hub.docker.com/repository/docker/infrahelpers/python-light/general)
 [![Docker Repository on Quay](https://quay.io/repository/artificialintelligence/python-light/status) "Docker Repository on Quay"](https://quay.io/repository/artificialintelligence/python-light)
 
 ## Docker images to support development on C++ and Python stacks
 
 ### General C++/Python development
 * [GitHub repsitory - Docker for C++ development](https://github.com/cpp-projects-showcase/docker-images)
-* [Docker land page for `cpppythondevelopment/base`](https://hub.docker.com/repository/docker/cpppythondevelopment/base)
-  + [Docker image page for `cpppythondevelopment/base:ubuntu1804`](https://hub.docker.com/layers/cpppythondevelopment/base/ubuntu1804/images/sha256-d79bb20ef0ed2eb2e474ea06806b69ac95d36de6056ce9185eb9a904e81a0eb6?context=repo)
+* [Docker land page for `infrahelpers/cpppython`](https://hub.docker.com/repository/docker/infrahelpers/cpppython)
+  + [Docker image page for `infrahelpers/cpppython:ubuntu2004`](https://hub.docker.com/layers/infrahelpers/cpppython/ubuntu2004/images/sha256-94e8546efa4bf2266876696d9faaebeb013e527490c177c019b3d2c17154524b?context=repo)
 * [Quay land page for `cpppythondevelopment/base`](https://quay.io/repository/cpppythondevelopment/base)
 * Distributions: `ubuntu2004`, `ubuntu1804`, `ubuntu1604`,
-  `debian10`, `debian9`, `centos8`, `centos7`, `fedora33`
+  `debian11`, `debian10`, `centos8`, `centos7`, `fedora34`, `fedora33`
 * Badges: 
-[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/cpppythondevelopment/base)](https://hub.docker.com/repository/docker/cpppythondevelopment/base/general)
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/cpppython)](https://hub.docker.com/repository/docker/infrahelpers/cpppython/general)
 [![Docker Repository on Quay](https://quay.io/repository/cpppythondevelopment/base/status "Docker Repository on Quay")](https://quay.io/repository/cpppythondevelopment/base)
 
 ### Python Machine Learning (ML)
 * [GitHub repsitory - Docker for Python (Jupyter, Pandas)](https://github.com/machine-learning-helpers/docker-python-jupyter)
-* [Docker land page for `artificialintelligence/python-jupyter`](https://hub.docker.com/repository/docker/artificialintelligence/python-jupyter)
-  + [Docker image page for `artificialintelligence/python-jupyter:ubuntu1804`](https://hub.docker.com/layers/artificialintelligence/python-jupyter/ubuntu1804/images/sha256-a1ca930d5c520dd66ab23e6b8122e761b7274044a8e5ac30b4adb2ad740e121b?context=repo)
+* [Docker land page for `infrahelpers/python-jupyter`](https://hub.docker.com/repository/docker/infrahelpers/python-jupyter)
+  + [Docker image page for `infrahelpers/python-jupyter:ubuntu2004`](https://hub.docker.com/layers/173699360/infrahelpers/python-jupyter/ubuntu2004/images/sha256-cb46eb37d40f9fa20457fada31e8255d31d23846fa54e8d2db6178c6be437848?context=repo)
 * [Quay land page for `artificialintelligence/python-jupyter`](https://quay.io/repository/artificialintelligence/python-jupyter)
-* Distributions: `ubuntu2004`, `ubuntu1804`, `debian10`, `debian9`,
-  `centos8`, `centos7`
+* Distributions: `ubuntu2004`, `ubuntu1804`, `ubuntu1604`,
+  `debian11`, `debian10`, `centos8`, `centos7`
 * Badges:
-[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/artificialintelligence/python-jupyter)](https://hub.docker.com/repository/docker/artificialintelligence/python-jupyter/general)
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/python-jupyter)](https://hub.docker.com/repository/docker/infrahelpers/python-jupyter/general)
 [![Docker Repository on Quay](https://quay.io/repository/artificialintelligence/python-jupyter/status "Docker Repository on Quay")](https://quay.io/repository/artificialintelligence/python-jupyter)
+
+### Python cloud images
+* [GitHub repsitory - Python cloud images](https://github.com/cloud-helpers/cloud-python-images)
+* [Docker land page for `infrahelpers/cloud-python`](https://hub.docker.com/repository/docker/infrahelpers/cloud-python)
+  + [Docker image page for `infrahelpers/cloud-python:py39-buster`](https://hub.docker.com/layers/161395146/infrahelpers/cloud-python/py39-buster/images/sha256-fe7b350505965cacfcda41d9ad7e9492d56222a9822b9b5435b689093487d25f?context=repo)
+* Distributions: `py310-bullseye`, `py310-buster`,
+  `py39-bullseye`, `py39-buster`, `py38-bullseye`, `py38-buster`
+* Badges:
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/cloud-python)](https://hub.docker.com/repository/docker/infrahelpers/cloud-python/general)
 
 ## Python tools for OpenTravelData (OPTD)
 * [OpenTravelData (OPTD) tools](https://github.com/opentraveldata/opentraveldata/blob/master/tools/)
@@ -105,19 +118,19 @@ Management of Python-related tools and container images
 
 * Add the commands to install the new Python version in the Dockerfile files
   of all the distriibutions. For instance,
-  [adding Python 3.9.5 to Ubuntu 20.04](https://github.com/cpp-projects-showcase/docker-images/blob/master/ubuntu2004/Dockerfile#L91)
+  [adding Python 3.9.7 to Ubuntu 20.04](https://github.com/cpp-projects-showcase/docker-images/blob/master/ubuntu2004/Dockerfile#L115)
 ```bash
 $ cat ubuntu2004/Dockerfile
 ...
-# Python 3.9.5
-RUN pyenv install 3.9.5 && \
-    pyenv global 3.9.5 && \
+# Python 3.9.7
+RUN pyenv install 3.9.7 && \
+    pyenv global 3.9.7 && \
     python -mpip install -U pip pipenv
-RUN pyenv global system || echo "No default system version of Python. Sticking to 3.9.5"
+RUN pyenv global system || echo "No default system version of Python. Sticking to 3.9.7"
 ...
 ```
 
-* Keeping at least one of the older versions of Python (3.9.4 here)
+* Keeping at least one of the older versions of Python (3.8.12 here)
   gives the downstream Docker images the time to catch up.
 
 ### Update the Python environment of the Python Jupyter Docker image
@@ -159,7 +172,6 @@ There are two folders in that project where the Python setup has to be updated:
   + [`Pipfile`](https://github.com/machine-learning-helpers/induction-python/blob/master/Pipfile)
   + [`Pipfile.lock`](https://github.com/machine-learning-helpers/induction-python/blob/master/Pipfile.lock)
 * [`ml_induction_python` folder](https://github.com/machine-learning-helpers/induction-python/tree/master/ml_induction_python)
-  + [`.python-version`](https://github.com/machine-learning-helpers/induction-python/blob/master/ml_induction_python/.python-version)
   + [`Pipfile`](https://github.com/machine-learning-helpers/induction-python/blob/master/ml_induction_python/Pipfile)
   + [`Pipfile.lock`](https://github.com/machine-learning-helpers/induction-python/blob/master/ml_induction_python/Pipfile.lock)
   + [`requirements.txt`](https://github.com/machine-learning-helpers/induction-python/blob/master/ml_induction_python/requirements.txt)
