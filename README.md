@@ -14,7 +14,7 @@ Management of Python-related tools and container images
     + [Python cloud images](#python-cloud-images)
   * [Python tools for OpenTravelData (OPTD)](#python-tools-for-opentraveldata-optd)
   * [Quality Assurance (QA) for OpenTravelData (OPTD)](#quality-assurance-qa-for-opentraveldata-optd)
-  * [Python bindiings for OpenTravelData (OPTD)](#python-bindiings-for-opentraveldata-optd)
+  * [Python bindings for OpenTravelData (OPTD)](#python-bindings-for-opentraveldata-optd)
   * [Python bindings for OpenTREP](#python-bindings-for-opentrep)
   * [Python installation](#python-installation)
 - [Procedures](#procedures)
@@ -97,7 +97,7 @@ Management of Python-related tools and container images
 ## Quality Assurance (QA) for OpenTravelData (OPTD)
 * [OpenTravelData (OPTD) - Quality Assurance (QA)](https://github.com/opentraveldata/quality-assurance/)
 
-## Python bindiings for OpenTravelData (OPTD)
+## Python bindings for OpenTravelData (OPTD)
 * [OpenTravelData (OPTD) Data Wrapper - Python Bindings](https://github.com/opentraveldata/python-opentraveldata)
 * [OpenTravelData (OPTD) on PyPi](https://pypi.org/project/opentraveldata/)
 
