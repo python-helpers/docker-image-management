@@ -56,7 +56,7 @@ Management of Python-related tools and container images
   + [`alp314-py395`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/alpine-3.14/)
 * Badges:
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/python-light)](https://hub.docker.com/repository/docker/infrahelpers/python-light/general)
-[![Docker Repository on Quay](https://quay.io/repository/artificialintelligence/python-light/status) "Docker Repository on Quay"](https://quay.io/repository/artificialintelligence/python-light)
+[![Docker Repository on Quay](https://quay.io/repository/artificialintelligence/python-light/status)](https://quay.io/repository/artificialintelligence/python-light)
 
 ## Docker images to support development on C++ and Python stacks
 
@@ -66,7 +66,7 @@ Management of Python-related tools and container images
   + [Docker image page for `infrahelpers/cpppython:ubuntu2004`](https://hub.docker.com/layers/infrahelpers/cpppython/ubuntu2004/images/sha256-94e8546efa4bf2266876696d9faaebeb013e527490c177c019b3d2c17154524b?context=repo)
 * [Quay land page for `cpppythondevelopment/base`](https://quay.io/repository/cpppythondevelopment/base)
 * Distributions: `ubuntu2004`, `ubuntu1804`, `ubuntu1604`,
-  `debian11`, `debian10`, `centos8`, `centos7`, `fedora34`, `fedora33`
+  `debian11`, `debian10`, `centos8`, `centos7`, `fedora35`, `fedora34`
 * Badges: 
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/cpppython)](https://hub.docker.com/repository/docker/infrahelpers/cpppython/general)
 [![Docker Repository on Quay](https://quay.io/repository/cpppythondevelopment/base/status "Docker Repository on Quay")](https://quay.io/repository/cpppythondevelopment/base)
@@ -118,20 +118,20 @@ Management of Python-related tools and container images
 
 * Add the commands to install the new Python version in the Dockerfile files
   of all the distriibutions. For instance,
-  [adding Python 3.9.7 to Ubuntu 20.04](https://github.com/cpp-projects-showcase/docker-images/blob/master/ubuntu2004/Dockerfile#L115)
+  [adding Python 3.9.8 to Ubuntu 20.04](https://github.com/cpp-projects-showcase/docker-images/blob/master/ubuntu2004/Dockerfile#L127)
 ```bash
 $ cat ubuntu2004/Dockerfile
 ...
-# Python 3.9.7
-RUN pyenv install 3.9.7 && \
-    pyenv global 3.9.7 && \
+# Python 3.9.8
+RUN pyenv install 3.9.8 && \
+    pyenv global 3.9.8 && \
     python -mpip install -U pip pipenv
-RUN pyenv global system || echo "No default system version of Python. Sticking to 3.9.7"
+RUN pyenv global system || echo "No default system version of Python. Sticking to 3.9.8"
 ...
 ```
 
-* Keeping at least one of the older versions of Python (3.8.12 here)
-  gives the downstream Docker images the time to catch up.
+* Keeping at least one of the older versions of Python (3.8.12 and 3.9.7 here)
+  gives the teams managing downstream Docker images the time to catch up.
 
 ### Update the Python environment of the Python Jupyter Docker image
 * Git repository:
@@ -141,7 +141,7 @@ The ML Python Jupyter Docker images are built on top of the generic C++/Python
 images, described in the section above. The Python versions are therefore
 controlled by those Docker images.
 
-The Python virtual environment speccifications need however to be upgraded.
+The Python virtual environment specifications need however to be upgraded.
 Files to update:
 * [`.python-version`](https://github.com/machine-learning-helpers/docker-python-jupyter/blob/master/.python-version)
 * [`Pipfile`](https://github.com/machine-learning-helpers/docker-python-jupyter/blob/master/Pipfile)
@@ -165,6 +165,9 @@ light Doccker images.
 
 Reference:
 [ML-related Python induction project](https://github.com/machine-learning-helpers/induction-python)
+
+Note that this Git repository is also a sub-module of the
+[Python Jupyter Docker image project](#update-the-python-environment-of-the-python-jupyter-docker-image)
 
 There are two folders in that project where the Python setup has to be updated:
 * [Root folder](https://github.com/machine-learning-helpers/induction-python)
@@ -207,7 +210,6 @@ References:
 * [OpenTravelData (OPTD) tools](https://github.com/opentraveldata/opentraveldata/blob/master/tools/)
 
 Files to update:
-* [`.python-version`](https://github.com/opentraveldata/opentraveldata/blob/master/tools/.python-version)
 * [`Pipfile`](https://github.com/opentraveldata/opentraveldata/blob/master/tools/Pipfile)
 * [`Pipfile.lock`](https://github.com/opentraveldata/opentraveldata/blob/master/tools/Pipfile.lock)
 
@@ -217,7 +219,6 @@ References:
 * [OpenTravelData (OPTD) - Quality Assurance (QA)](https://github.com/opentraveldata/quality-assurance/)
 
 Files to update:
-* [`.python-version`](https://github.com/opentraveldata/quality-assurance/blob/master/.python-version)
 * [`Pipfile`](https://github.com/opentraveldata/quality-assurance/blob/master/Pipfile)
 * [`Pipfile.lock`](https://github.com/opentraveldata/quality-assurance/blob/master/Pipfile.lock)
 * [`requirements.txt`](https://github.com/opentraveldata/quality-assurance/blob/master/requirements.txt)
@@ -263,7 +264,6 @@ Files to update:
 * [`.python-version`](https://github.com/trep/wrapper/blob/master/.python-version)
 * [`Pipfile`](https://github.com/trep/wrapper/blob/master/Pipfile)
 * [`Pipfile.lock`](https://github.com/trep/wrapper/blob/master/Pipfile.lock)
-* [`requirements.txt `](https://github.com/trep/wrapper/blob/master/requirements.txt)
 * [`requirements-dev.txt `](https://github.com/trep/wrapper/blob/master/requirements-dev.txt)
 
 Publish the component on PyPi:
