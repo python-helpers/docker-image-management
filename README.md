@@ -232,7 +232,6 @@ References:
 * [OpenTravelData on PyPi](https://pypi.org/project/opentraveldata/)
 
 Files to update:
-* [`.python-version`](https://github.com/opentraveldata/python-opentraveldata/blob/master/.python-version)
 * [`Pipfile`](https://github.com/opentraveldata/python-opentraveldata/blob/master/Pipfile)
 * [`Pipfile.lock`](https://github.com/opentraveldata/python-opentraveldata/blob/master/Pipfile.lock)
 * (potentially) [`setup.py`](https://github.com/opentraveldata/python-opentraveldata/blob/master/setup.py)
