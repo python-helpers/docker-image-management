@@ -118,19 +118,19 @@ Management of Python-related tools and container images
 
 * Add the commands to install the new Python version in the Dockerfile files
   of all the distriibutions. For instance,
-  [adding Python 3.9.8 to Ubuntu 20.04](https://github.com/cpp-projects-showcase/docker-images/blob/master/ubuntu2004/Dockerfile#L127)
+  [adding Python 3.9.10 to Ubuntu 20.04](https://github.com/cpp-projects-showcase/docker-images/blob/master/ubuntu2004/Dockerfile#L127)
 ```bash
 $ cat ubuntu2004/Dockerfile
 ...
-# Python 3.9.8
-RUN pyenv install 3.9.8 && \
-    pyenv global 3.9.8 && \
+# Python 3.9.10
+RUN pyenv install 3.9.10 && \
+    pyenv global 3.9.10 && \
     python -mpip install -U pip pipenv
-RUN pyenv global system || echo "No default system version of Python. Sticking to 3.9.8"
+RUN pyenv global system || echo "No default system version of Python. Sticking to 3.9.10"
 ...
 ```
 
-* Keeping at least one of the older versions of Python (3.8.12 and 3.9.7 here)
+* Keeping at least one of the older versions of Python (3.8.12 and 3.9.9 here)
   gives the teams managing downstream Docker images the time to catch up.
 
 ### Update the Python environment of the Python Jupyter Docker image
