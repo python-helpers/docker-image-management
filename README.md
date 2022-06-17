@@ -65,8 +65,9 @@ Management of Python-related tools and container images
 * [Docker land page for `infrahelpers/cpppython`](https://hub.docker.com/repository/docker/infrahelpers/cpppython)
   + [Docker image page for `infrahelpers/cpppython:ubuntu2004`](https://hub.docker.com/layers/infrahelpers/cpppython/ubuntu2004/images/sha256-94e8546efa4bf2266876696d9faaebeb013e527490c177c019b3d2c17154524b?context=repo)
 * [Quay land page for `cpppythondevelopment/base`](https://quay.io/repository/cpppythondevelopment/base)
-* Distributions: `ubuntu2004`, `ubuntu1804`, `ubuntu1604`,
-  `debian11`, `debian10`, `centos8`, `centos7`, `fedora35`, `fedora34`
+* Distributions: `ubuntu2204`, `ubuntu2004`, `ubuntu1804`,
+  `debian11`, `debian10`, `centos9`, `centos8`, `centos7`,
+  `fedora3`, `fedora35`
 * Badges: 
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/cpppython)](https://hub.docker.com/repository/docker/infrahelpers/cpppython/general)
 [![Docker Repository on Quay](https://quay.io/repository/cpppythondevelopment/base/status "Docker Repository on Quay")](https://quay.io/repository/cpppythondevelopment/base)
@@ -76,8 +77,8 @@ Management of Python-related tools and container images
 * [Docker land page for `infrahelpers/python-jupyter`](https://hub.docker.com/repository/docker/infrahelpers/python-jupyter)
   + [Docker image page for `infrahelpers/python-jupyter:ubuntu2004`](https://hub.docker.com/layers/173699360/infrahelpers/python-jupyter/ubuntu2004/images/sha256-cb46eb37d40f9fa20457fada31e8255d31d23846fa54e8d2db6178c6be437848?context=repo)
 * [Quay land page for `artificialintelligence/python-jupyter`](https://quay.io/repository/artificialintelligence/python-jupyter)
-* Distributions: `ubuntu2004`, `ubuntu1804`, `ubuntu1604`,
-  `debian11`, `debian10`, `centos8`, `centos7`
+* Distributions: `ubuntu2204`, `ubuntu2004`, `ubuntu1804`,
+  `debian11`, `debian10`, `centos9`, `centos8`, `centos7`
 * Badges:
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/python-jupyter)](https://hub.docker.com/repository/docker/infrahelpers/python-jupyter/general)
 [![Docker Repository on Quay](https://quay.io/repository/artificialintelligence/python-jupyter/status "Docker Repository on Quay")](https://quay.io/repository/artificialintelligence/python-jupyter)
