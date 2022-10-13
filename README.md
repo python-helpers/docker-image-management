@@ -66,8 +66,9 @@ Management of Python-related tools and container images
   + [Docker image page for `infrahelpers/cpppython:ubuntu2004`](https://hub.docker.com/layers/infrahelpers/cpppython/ubuntu2004/images/sha256-94e8546efa4bf2266876696d9faaebeb013e527490c177c019b3d2c17154524b?context=repo)
 * [Quay land page for `cpppythondevelopment/base`](https://quay.io/repository/cpppythondevelopment/base)
 * Distributions: `ubuntu2204`, `ubuntu2004`, `ubuntu1804`,
-  `debian11`, `debian10`, `centos9`, `centos8`, `centos7`,
-  `fedora3`, `fedora35`
+  `debian11`, `debian10`,
+  `centos9`, `centos8`, `centos7`,
+  `fedora36`, `fedora35`
 * Badges: 
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/cpppython)](https://hub.docker.com/repository/docker/infrahelpers/cpppython/general)
 [![Docker Repository on Quay](https://quay.io/repository/cpppythondevelopment/base/status "Docker Repository on Quay")](https://quay.io/repository/cpppythondevelopment/base)
