@@ -46,20 +46,20 @@ Management of Python-related tools and container images
 * [Quay land page for `artificialintelligence/python-light`](https://quay.io/repository/artificialintelligence/python-light)
 * Distributions:
   - Python 3.11:
+    + [`py311-bookworm`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.11-bookworm/)
     + [`py311-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.11-bullseye/)
-    + [`py311-buster`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.11-buster/)
     + [`py311-alp316`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.11-alpine-3.16)
   - Python 3.10:
+    + [`py310-bookworm`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.10-bookworm/)
     + [`py310-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.10-bullseye/)
-    + [`py310-buster`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.10-buster/)
   - Python 3.9:
+    + [`py39-bookworm`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.9-bookworm/)
     + [`py39-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.9-bullseye/)
-    + [`py39-buster`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.9-buster/)
   - Python 3.8:
+    + [`py38-bookworm`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.8-bookworm/)
     + [`py38-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.8-bullseye/)
-    + [`py38-buster`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.8-buster/)
   - Native Python on latest Alpine:
-  + [`alp316-py310`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/alpine-3.16/)
+  + [`alp318-py311`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/alpine-3.18/)
 * Badges:
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/python-light)](https://hub.docker.com/repository/docker/infrahelpers/python-light/general)
 [![Docker Repository on Quay](https://quay.io/repository/artificialintelligence/python-light/status)](https://quay.io/repository/artificialintelligence/python-light)
@@ -72,9 +72,9 @@ Management of Python-related tools and container images
   + [Docker image page for `infrahelpers/cpppython:ubuntu2004`](https://hub.docker.com/layers/infrahelpers/cpppython/ubuntu2004/images/sha256-94e8546efa4bf2266876696d9faaebeb013e527490c177c019b3d2c17154524b?context=repo)
 * [Quay land page for `cpppythondevelopment/base`](https://quay.io/repository/cpppythondevelopment/base)
 * Distributions: `ubuntu2204`, `ubuntu2004`, `ubuntu1804`,
-  `debian11`, `debian10`,
+  `debian12`, `debian11`, `debian10`,
   `centos9`, `centos8`, `centos7`,
-  `fedora37`, `fedora36`
+  `fedora38`, `fedora37`
 * Badges: 
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/cpppython)](https://hub.docker.com/repository/docker/infrahelpers/cpppython/general)
 [![Docker Repository on Quay](https://quay.io/repository/cpppythondevelopment/base/status "Docker Repository on Quay")](https://quay.io/repository/cpppythondevelopment/base)
@@ -85,7 +85,7 @@ Management of Python-related tools and container images
   + [Docker image page for `infrahelpers/python-jupyter:ubuntu2004`](https://hub.docker.com/layers/173699360/infrahelpers/python-jupyter/ubuntu2004/images/sha256-cb46eb37d40f9fa20457fada31e8255d31d23846fa54e8d2db6178c6be437848?context=repo)
 * [Quay land page for `artificialintelligence/python-jupyter`](https://quay.io/repository/artificialintelligence/python-jupyter)
 * Distributions: `ubuntu2204`, `ubuntu2004`, `ubuntu1804`,
-  `debian11`, `debian10`, `centos9`, `centos8`, `centos7`
+  `debian12`, `debian11`, `debian10`, `centos9`, `centos8`, `centos7`
 * Badges:
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/python-jupyter)](https://hub.docker.com/repository/docker/infrahelpers/python-jupyter/general)
 [![Docker Repository on Quay](https://quay.io/repository/artificialintelligence/python-jupyter/status "Docker Repository on Quay")](https://quay.io/repository/artificialintelligence/python-jupyter)
@@ -93,12 +93,12 @@ Management of Python-related tools and container images
 ### Python cloud images
 * [GitHub repsitory - Python cloud images](https://github.com/cloud-helpers/cloud-python-images)
 * [Docker land page for `infrahelpers/cloud-python`](https://hub.docker.com/repository/docker/infrahelpers/cloud-python)
-  + [Docker image page for `infrahelpers/cloud-python:py39-buster`](https://hub.docker.com/layers/161395146/infrahelpers/cloud-python/py39-buster/images/sha256-fe7b350505965cacfcda41d9ad7e9492d56222a9822b9b5435b689093487d25f?context=repo)
+  + [Docker image page for `infrahelpers/cloud-python:py39-bullseye`](https://hub.docker.com/layers/infrahelpers/cloud-python/py311-bullseye/images/sha256-7f4cdcc9c00220a7db792d062b71d5c7e237223eaa07a381913eb6c0d53fdca3?context=explore)
 * Distributions: `pyspark-emr6`, `pyspark-emr6-light`, `pyspark-emr-jdk11`,
-  `py311-bullseye`, `py311-buster`,
-  `py310-bullseye`, `py310-buster`,
-  `py39-bullseye`, `py39-buster`,
-  `py38-bullseye`, `py38-buster`
+  `py311-bookworm`, `py311-bullseye`,
+  `py310-bookworm`, `py310-bullseye`,
+  `py39-bookworm`, `py39-bullseye`,
+  `py38-bookworm`, `py38-bullseye`
 * Badges:
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/cloud-python)](https://hub.docker.com/repository/docker/infrahelpers/cloud-python/general)
 
