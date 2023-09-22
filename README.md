@@ -69,7 +69,7 @@ Management of Python-related tools and container images
 ### General C++/Python development
 * [GitHub repsitory - Docker for C++ development](https://github.com/cpp-projects-showcase/docker-images)
 * [Docker land page for `infrahelpers/cpppython`](https://hub.docker.com/repository/docker/infrahelpers/cpppython)
-  + [Docker image page for `infrahelpers/cpppython:ubuntu2004`](https://hub.docker.com/layers/infrahelpers/cpppython/ubuntu2004/images/sha256-94e8546efa4bf2266876696d9faaebeb013e527490c177c019b3d2c17154524b?context=repo)
+  + [Docker image page for `infrahelpers/cpppython:ubuntu2204`](https://hub.docker.com/layers/infrahelpers/cpppython/ubuntu2204/images/sha256-7ce8b09c1fc9a462060f87e6bef933dc41466f35fa8d3b6d6c9690aeb6fdf988?context=repo)
 * [Quay land page for `cpppythondevelopment/base`](https://quay.io/repository/cpppythondevelopment/base)
 * Distributions: `ubuntu2204`, `ubuntu2004`, `ubuntu1804`,
   `debian12`, `debian11`, `debian10`,
@@ -85,7 +85,7 @@ Management of Python-related tools and container images
   + [Docker image page for `infrahelpers/python-jupyter:ubuntu2004`](https://hub.docker.com/layers/173699360/infrahelpers/python-jupyter/ubuntu2004/images/sha256-cb46eb37d40f9fa20457fada31e8255d31d23846fa54e8d2db6178c6be437848?context=repo)
 * [Quay land page for `artificialintelligence/python-jupyter`](https://quay.io/repository/artificialintelligence/python-jupyter)
 * Distributions: `ubuntu2204`, `ubuntu2004`, `ubuntu1804`,
-  `debian12`, `debian11`, `debian10`, `centos9`, `centos8`, `centos7`
+  `debian12`, `debian11`, `centos9`, `centos8`
 * Badges:
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/python-jupyter)](https://hub.docker.com/repository/docker/infrahelpers/python-jupyter/general)
 [![Docker Repository on Quay](https://quay.io/repository/artificialintelligence/python-jupyter/status "Docker Repository on Quay")](https://quay.io/repository/artificialintelligence/python-jupyter)
@@ -94,11 +94,10 @@ Management of Python-related tools and container images
 * [GitHub repsitory - Python cloud images](https://github.com/cloud-helpers/cloud-python-images)
 * [Docker land page for `infrahelpers/cloud-python`](https://hub.docker.com/repository/docker/infrahelpers/cloud-python)
   + [Docker image page for `infrahelpers/cloud-python:py39-bullseye`](https://hub.docker.com/layers/infrahelpers/cloud-python/py311-bullseye/images/sha256-7f4cdcc9c00220a7db792d062b71d5c7e237223eaa07a381913eb6c0d53fdca3?context=explore)
-* Distributions: `pyspark-emr6`, `pyspark-emr6-light`, `pyspark-emr-jdk11`,
-  `py311-bookworm`, `py311-bullseye`,
-  `py310-bookworm`, `py310-bullseye`,
-  `py39-bookworm`, `py39-bullseye`,
-  `py38-bookworm`, `py38-bullseye`
+* Distributions:
+  `pyspark-emr6`, `pyspark-emr6-light`, `pyspark-emr-dbs`, `pyspark-emr-jdk11`,
+  `py311-bookworm`, `py310-bookworm`, `py39-bookworm`, `py38-bookworm`
+  
 * Badges:
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/cloud-python)](https://hub.docker.com/repository/docker/infrahelpers/cloud-python/general)
 
@@ -129,34 +128,33 @@ Management of Python-related tools and container images
 
 * Add the commands to install the new Python version in the Dockerfile files
   of all the distriibutions. For instance,
-  [adding Python 3.9.10 to Ubuntu 20.04](https://github.com/cpp-projects-showcase/docker-images/blob/master/ubuntu2004/Dockerfile#L127)
+  [adding Python 3.11.5 to Ubuntu 22.04](https://github.com/cpp-projects-showcase/docker-images/blob/master/ubuntu2204/Dockerfile#L134)
 ```bash
-$ cat ubuntu2004/Dockerfile
+$ cat ubuntu2204/Dockerfile
 ...
-# Python 3.9.10
-RUN pyenv install 3.9.10 && \
-    pyenv global 3.9.10 && \
+# Python 3.11.5
+RUN pyenv install 3.11.5 && \
+    pyenv global 3.11.5 && \
     python -mpip install -U pip pipenv
-RUN pyenv global system || echo "No default system version of Python. Sticking to 3.9.10"
+RUN pyenv global system || echo "No default system version of Python. Sticking to 3.11.5"
 ...
 ```
 
-* Keeping at least one of the older versions of Python (3.8.12 and 3.9.9 here)
+* Keeping at least one of the older versions of Python (3.8.18 and 3.9.18 here)
   gives the teams managing downstream Docker images the time to catch up.
 
 ### Update the Python environment of the Python Jupyter Docker image
 * Git repository:
   https://github.com/machine-learning-helpers/docker-python-jupyter
 
-The ML Python Jupyter Docker images are built on top of the generic C++/Python
-images, described in the section above. The Python versions are therefore
-controlled by those Docker images.
+The ML Python Jupyter Docker images are built on top of the generic
+C++/Python images, described in the section above. The Python versions
+are therefore controlled by those Docker images.
 
 The Python virtual environment specifications need however to be upgraded.
 Files to update:
 * [`.python-version`](https://github.com/machine-learning-helpers/docker-python-jupyter/blob/master/.python-version)
 * [`Pipfile`](https://github.com/machine-learning-helpers/docker-python-jupyter/blob/master/Pipfile)
-* [`Pipfile.lock`](https://github.com/machine-learning-helpers/docker-python-jupyter/blob/master/Pipfile.lock)
 
 ### Update the Python environment of the Python light Docker image
 * Git repository:
@@ -168,7 +166,7 @@ Debian Slim), as maintained by Docker itself
 [on Docker Hub](https://hub.docker.com/_/python)), are usually
 the latest Python stable versions, only a few days after they have been
 released. There is hence no need to upgrade the Python version on the
-light Doccker images.
+light Docker images.
 
 ### Non Docker projects to update
 
@@ -184,11 +182,16 @@ There are two folders in that project where the Python setup has to be updated:
 * [Root folder](https://github.com/machine-learning-helpers/induction-python)
   + [`.python-version`](https://github.com/machine-learning-helpers/induction-python/blob/master/.python-version)
   + [`Pipfile`](https://github.com/machine-learning-helpers/induction-python/blob/master/Pipfile)
-  + [`Pipfile.lock`](https://github.com/machine-learning-helpers/induction-python/blob/master/Pipfile.lock)
 * [`ml_induction_python` folder](https://github.com/machine-learning-helpers/induction-python/tree/master/ml_induction_python)
   + [`Pipfile`](https://github.com/machine-learning-helpers/induction-python/blob/master/ml_induction_python/Pipfile)
-  + [`Pipfile.lock`](https://github.com/machine-learning-helpers/induction-python/blob/master/ml_induction_python/Pipfile.lock)
   + [`requirements.txt`](https://github.com/machine-learning-helpers/induction-python/blob/master/ml_induction_python/requirements.txt)
+    - Note that the `requirements.txt` file may be upgraded with:
+```bash
+$ pipenv install
+  pipenv requirements > requirements.txt
+  git add requirements.txt
+  git commit -m "Upgreded the Python dependencies"
+```
 
 Then, the ML Docker project (see above) should be updated to point to
 the new Python ML induction head.
@@ -222,7 +225,6 @@ References:
 
 Files to update:
 * [`Pipfile`](https://github.com/opentraveldata/opentraveldata/blob/master/tools/Pipfile)
-* [`Pipfile.lock`](https://github.com/opentraveldata/opentraveldata/blob/master/tools/Pipfile.lock)
 
 #### Quality Assurance (QA) for OpenTravelData (OPTD)
 
@@ -231,7 +233,6 @@ References:
 
 Files to update:
 * [`Pipfile`](https://github.com/opentraveldata/quality-assurance/blob/master/Pipfile)
-* [`Pipfile.lock`](https://github.com/opentraveldata/quality-assurance/blob/master/Pipfile.lock)
 * [`requirements.txt`](https://github.com/opentraveldata/quality-assurance/blob/master/requirements.txt)
   + Copy that `requirements.txt` file as
     [`ci-scripts/requirements.txt` in OpenTravelData (OPTD)](https://github.com/opentraveldata/opentraveldata/blob/master/ci-scripts/requirements.txt)
@@ -255,14 +256,17 @@ Files to update:
 Publish the component on PyPi:
 ```bash
 user@laptop$ cd ~/dev/geo/python-opentraveldata
-user@laptop$ rm -rf dist && mkdir dist
-user@laptop$ pipenv run python setup.py sdist bdist_wheel
+user@laptop$ rm -rf dist
+user@laptop$ python -mbuild
 user@laptop$ PYPIURL="https://test.pypi.org"
-user@laptop$ pipenv run twine upload -u __token__ --repository-url ${PYPIURL}/legacy/ dist/*
+user@laptop$ twine upload -u __token__ --repository-url ${PYPIURL}/legacy/ dist/*
 user@laptop$ PYPIURL="https://pypi.org"
-user@laptop$ #pipenv run keyring set ${PYPIURL}/ __token__
-user@laptop$ pipenv run twine upload -u __token__ --non-interactive dist/*
+user@laptop$ #keyring set ${PYPIURL}/ __token__
+user@laptop$ twine upload -u __token__ --non-interactive dist/*
 ```
+
+The result should available on PyPi, _e.g._,
+https://pypi.org/project/opentraveldata/0.0.9.post2/
 
 #### Python bindings for OpenTREP
 
@@ -271,27 +275,21 @@ References:
 * [OpenTrepWrapper on PyPi](https://pypi.org/project/OpenTrepWrapper/)
 
 Files to update:
-* [`.python-version`](https://github.com/trep/wrapper/blob/master/.python-version)
 * [`Pipfile`](https://github.com/trep/wrapper/blob/master/Pipfile)
-* [`Pipfile.lock`](https://github.com/trep/wrapper/blob/master/Pipfile.lock)
-* [`requirements-dev.txt `](https://github.com/trep/wrapper/blob/master/requirements-dev.txt)
 
 Publish the component on PyPi:
 ```bash
 user@laptop$ rm -rf dist && mkdir dist
-user@laptop$ pipenv run python setup.py sdist bdist_wheel
+user@laptop$ python setup.py sdist bdist_wheel
 user@laptop$ PYPIURL="https://test.pypi.org"
-user@laptop$ pipenv run twine upload -u __token__ --repository-url ${PYPIURL}/legacy/ dist/*
+user@laptop$ twine upload -u __token__ --repository-url ${PYPIURL}/legacy/ dist/*
 user@laptop$ PYPIURL="https://pypi.org"
-user@laptop$ #pipenv run keyring set ${PYPIURL}/ __token__
-user@laptop$ pipenv run twine upload -u __token__ --non-interactive --repository-url ${PYPIURL}/legacy/ dist/*
+user@laptop$ #keyring set ${PYPIURL}/ __token__
+user@laptop$ twine upload -u __token__ --non-interactive dist/*
 ```
 
-Re-generate `requirements.txt` and `requirements-dev.txt`:
-```bash
-$ pipenv lock -r > requirements.txt
-$ pipenv lock -r --dev > requirements-dev.txt
-```
+The resulting artifact should be available on PyPi, _e.g._:
+https://pypi.org/project/OpenTrepWrapper/0.7.7.post3/
 
 ## Installation or update of a Python virtual environment
 * In a folder governed by `Pipfile`:
