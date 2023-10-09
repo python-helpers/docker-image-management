@@ -45,10 +45,14 @@ Management of Python-related tools and container images
   + [Docker image page for `infrahelpers/python-light:py39-bullseye`](https://hub.docker.com/layers/173696157/infrahelpers/python-light/py39-bullseye/images/sha256-7b68b943693e3fd5528e5356e2e0eda97c002299d80b862caa15216843d8b8a7?context=repo)
 * [Quay land page for `artificialintelligence/python-light`](https://quay.io/repository/artificialintelligence/python-light)
 * Distributions:
+  - Python 3.12:
+    + [`py312-bookworm`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.12-bookworm/)
+    + [`py312-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.12-bullseye/)
+    + [`py312-alp318`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.12-alpine-3.18)
   - Python 3.11:
     + [`py311-bookworm`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.11-bookworm/)
     + [`py311-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.11-bullseye/)
-    + [`py311-alp316`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.11-alpine-3.16)
+    + [`py311-alp318`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.11-alpine-3.18)
   - Python 3.10:
     + [`py310-bookworm`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.10-bookworm/)
     + [`py310-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.10-bullseye/)
@@ -96,7 +100,8 @@ Management of Python-related tools and container images
   + [Docker image page for `infrahelpers/cloud-python:py39-bullseye`](https://hub.docker.com/layers/infrahelpers/cloud-python/py311-bullseye/images/sha256-7f4cdcc9c00220a7db792d062b71d5c7e237223eaa07a381913eb6c0d53fdca3?context=explore)
 * Distributions:
   `pyspark-emr6`, `pyspark-emr6-light`, `pyspark-emr-dbs`, `pyspark-emr-jdk11`,
-  `py311-bookworm`, `py310-bookworm`, `py39-bookworm`, `py38-bookworm`
+  `py312-bookworm`, `py311-bookworm`, `py310-bookworm`,
+  `py39-bookworm`, `py38-bookworm`
   
 * Badges:
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/cloud-python)](https://hub.docker.com/repository/docker/infrahelpers/cloud-python/general)
@@ -128,15 +133,15 @@ Management of Python-related tools and container images
 
 * Add the commands to install the new Python version in the Dockerfile files
   of all the distriibutions. For instance,
-  [adding Python 3.11.5 to Ubuntu 22.04](https://github.com/cpp-projects-showcase/docker-images/blob/master/ubuntu2204/Dockerfile#L134)
+  [adding Python 3.12.0 to Ubuntu 22.04](https://github.com/cpp-projects-showcase/docker-images/blob/master/ubuntu2204/Dockerfile#L134)
 ```bash
 $ cat ubuntu2204/Dockerfile
 ...
-# Python 3.11.5
-RUN pyenv install 3.11.5 && \
-    pyenv global 3.11.5 && \
+# Python 3.12.0
+RUN pyenv install 3.12.0 && \
+    pyenv global 3.12.0 && \
     python -mpip install -U pip pipenv
-RUN pyenv global system || echo "No default system version of Python. Sticking to 3.11.5"
+RUN pyenv global system || echo "No default system version of Python. Sticking to 3.12.0"
 ...
 ```
 
