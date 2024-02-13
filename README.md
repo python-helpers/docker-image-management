@@ -47,23 +47,23 @@ Management of Python-related tools and container images
 * Distributions:
   - Python 3.12:
     + [`py312-bookworm`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.12-bookworm/)
-    + [`py312-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.12-bullseye/)
-    + [`py312-alp318`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.12-alpine-3.18)
+    + [`py312-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/main/python-3.12-bullseye/)
+    + [`py312-alp318`](https://github.com/machine-learning-helpers/docker-python-light/tree/main/python-3.12-alpine-3.18)
   - Python 3.11:
-    + [`py311-bookworm`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.11-bookworm/)
-    + [`py311-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.11-bullseye/)
-    + [`py311-alp318`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.11-alpine-3.18)
+    + [`py311-bookworm`](https://github.com/machine-learning-helpers/docker-python-light/tree/main/python-3.11-bookworm/)
+    + [`py311-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/main/python-3.11-bullseye/)
+    + [`py311-alp318`](https://github.com/machine-learning-helpers/docker-python-light/tree/main/python-3.11-alpine-3.18)
   - Python 3.10:
-    + [`py310-bookworm`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.10-bookworm/)
-    + [`py310-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.10-bullseye/)
+    + [`py310-bookworm`](https://github.com/machine-learning-helpers/docker-python-light/tree/main/python-3.10-bookworm/)
+    + [`py310-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/main/python-3.10-bullseye/)
   - Python 3.9:
-    + [`py39-bookworm`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.9-bookworm/)
-    + [`py39-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.9-bullseye/)
+    + [`py39-bookworm`](https://github.com/machine-learning-helpers/docker-python-light/tree/main/python-3.9-bookworm/)
+    + [`py39-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/main/python-3.9-bullseye/)
   - Python 3.8:
-    + [`py38-bookworm`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.8-bookworm/)
-    + [`py38-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/python-3.8-bullseye/)
+    + [`py38-bookworm`](https://github.com/machine-learning-helpers/docker-python-light/tree/main/python-3.8-bookworm/)
+    + [`py38-bullseye`](https://github.com/machine-learning-helpers/docker-python-light/tree/main/python-3.8-bullseye/)
   - Native Python on latest Alpine:
-  + [`alp318-py311`](https://github.com/machine-learning-helpers/docker-python-light/tree/master/docker/alpine-3.18/)
+  + [`alp319-py311`](https://github.com/machine-learning-helpers/docker-python-light/tree/main/alpine-3.19/)
 * Badges:
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/python-light)](https://hub.docker.com/repository/docker/infrahelpers/python-light/general)
 [![Docker Repository on Quay](https://quay.io/repository/artificialintelligence/python-light/status)](https://quay.io/repository/artificialintelligence/python-light)
@@ -137,15 +137,15 @@ Management of Python-related tools and container images
 ```bash
 $ cat ubuntu2204/Dockerfile
 ...
-# Python 3.12.0
-RUN pyenv install 3.12.0 && \
-    pyenv global 3.12.0 && \
+# Python 3.12.3
+RUN pyenv install 3.12.3 && \
+    pyenv global 3.12.3 && \
     python -mpip install -U pip pipenv
-RUN pyenv global system || echo "No default system version of Python. Sticking to 3.12.0"
+RUN pyenv global system || echo "No default system version of Python. Sticking to 3.12.3"
 ...
 ```
 
-* Keeping at least one of the older versions of Python (3.8.18 and 3.9.18 here)
+* Keeping at least one of the older versions of Python (3.10.13 and 3.11.8 here)
   gives the teams managing downstream Docker images the time to catch up.
 
 ### Update the Python environment of the Python Jupyter Docker image
