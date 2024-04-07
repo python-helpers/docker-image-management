@@ -68,17 +68,24 @@ Management of Python-related tools and container images
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/python-light)](https://hub.docker.com/repository/docker/infrahelpers/python-light/general)
 [![Docker Repository on Quay](https://quay.io/repository/artificialintelligence/python-light/status)](https://quay.io/repository/artificialintelligence/python-light)
 
-## Docker images to support development on C++ and Python stacks
+## Images to support Data Processing Pipelines (DPP)
+* [GitHub repsitory - Images for Data Processing Pipelines (DPP)](https://github.com/data-engineering-helpers/dpp-images)
+  + [GitHub - Python version matrix in GitHub Actions](https://github.com/data-engineering-helpers/dpp-images/blob/main/.github/workflows/docker.yml#L106)
+* [Docker land page for `infrahelpers/dpp`](https://cloud.docker.com/u/infrahelpers/repository/docker/infrahelpers/dpp)
+* Image tags:
+  `jdk17-python3.12`, `jdk11-python3.12`, `jdk8-python3.12`,
+  `jdk17-python3.11`, `jdk11-python3.11`, `jdk8-python3.11`
+
+## Images to support development on C++ and Python stacks
 
 ### General C++/Python development
 * [GitHub repsitory - Docker for C++ development](https://github.com/cpp-projects-showcase/docker-images)
 * [Docker land page for `infrahelpers/cpppython`](https://hub.docker.com/repository/docker/infrahelpers/cpppython)
   + [Docker image page for `infrahelpers/cpppython:ubuntu2204`](https://hub.docker.com/layers/infrahelpers/cpppython/ubuntu2204/images/sha256-7ce8b09c1fc9a462060f87e6bef933dc41466f35fa8d3b6d6c9690aeb6fdf988?context=repo)
 * [Quay land page for `cpppythondevelopment/base`](https://quay.io/repository/cpppythondevelopment/base)
-* Distributions: `ubuntu2204`, `ubuntu2004`, `ubuntu1804`,
-  `debian12`, `debian11`, `debian10`,
-  `centos9`, `centos8`, `centos7`,
-  `fedora38`, `fedora37`
+* Distributions: `ubuntu2404`, `ubuntu2204`, `ubuntu2004`,
+  `debian12`, `debian11`, `centos9`, `centos8`, `centos7`,
+  `fedora40`, `fedora39`
 * Badges: 
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/cpppython)](https://hub.docker.com/repository/docker/infrahelpers/cpppython/general)
 [![Docker Repository on Quay](https://quay.io/repository/cpppythondevelopment/base/status "Docker Repository on Quay")](https://quay.io/repository/cpppythondevelopment/base)
@@ -88,7 +95,7 @@ Management of Python-related tools and container images
 * [Docker land page for `infrahelpers/python-jupyter`](https://hub.docker.com/repository/docker/infrahelpers/python-jupyter)
   + [Docker image page for `infrahelpers/python-jupyter:ubuntu2004`](https://hub.docker.com/layers/173699360/infrahelpers/python-jupyter/ubuntu2004/images/sha256-cb46eb37d40f9fa20457fada31e8255d31d23846fa54e8d2db6178c6be437848?context=repo)
 * [Quay land page for `artificialintelligence/python-jupyter`](https://quay.io/repository/artificialintelligence/python-jupyter)
-* Distributions: `ubuntu2204`, `ubuntu2004`, `ubuntu1804`,
+* Distributions: `ubuntu2404`, `ubuntu2204`, `ubuntu2004`,
   `debian12`, `debian11`, `centos9`, `centos8`
 * Badges:
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/infrahelpers/python-jupyter)](https://hub.docker.com/repository/docker/infrahelpers/python-jupyter/general)
@@ -98,7 +105,7 @@ Management of Python-related tools and container images
 * [GitHub repsitory - Python cloud images](https://github.com/cloud-helpers/cloud-python-images)
 * [Docker land page for `infrahelpers/cloud-python`](https://hub.docker.com/repository/docker/infrahelpers/cloud-python)
   + [Docker image page for `infrahelpers/cloud-python:py39-bullseye`](https://hub.docker.com/layers/infrahelpers/cloud-python/py311-bullseye/images/sha256-7f4cdcc9c00220a7db792d062b71d5c7e237223eaa07a381913eb6c0d53fdca3?context=explore)
-* Distributions:
+* Image tags:
   `pyspark-emr6`, `pyspark-emr6-light`, `pyspark-emr-dbs`, `pyspark-emr-jdk11`,
   `py312-bookworm`, `py311-bookworm`, `py310-bookworm`,
   `py39-bookworm`, `py38-bookworm`
